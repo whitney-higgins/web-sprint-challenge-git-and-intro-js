@@ -268,9 +268,14 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function removeArtist(array, idx) {
+  const arrayCopy = [...array]
+  arrayCopy.splice(idx, 1)
+
+  return arrayCopy;
 }
+removeArtist(artists, 3)
+
 
 
 
@@ -290,10 +295,20 @@ Use addArtist to do the following:
 5. Add the newly created object to the copied array, then return the copied array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function addArtist(array, name, years, genre, nationality, bio) {
+  const arrayCopy = [...array];
+  const newArtist = {
+    name: name,
+    years: years,
+    genre: genre,
+    nationality: nationality,
+    bio: bio
+  }
+  arrayCopy.push(newArtist);
+  
+  return arrayCopy
 }
-
+addArtist(artists, "Jean-Michel Basquiat", "1978–1988", "Neo-expressionism", "African-American", "Jean-Michel Basquiat (French: [ʒɑ̃ miʃɛl baskja]; December 22, 1960 – August 12, 1988) was an American artist who rose to success during the 1980s as part of the Neo-expressionism movement.Basquiat first achieved fame as part of the graffiti duo SAMO, alongside Al Diaz, writing enigmatic epigrams in the cultural hotbed of Manhattan's Lower East Side during the late 1970s, where rap, punk, and street art coalesced into early hip-hop music culture. By the early 1980s, his paintings were being exhibited in galleries and museums internationally. At 21, Basquiat became the youngest artist to ever take part in Documenta in Kassel, Germany. At 22, he was one of the youngest to exhibit at the Whitney Biennial in New York. The Whitney Museum of American Art held a retrospective of his artwork in 1992.")
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -304,9 +319,17 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array) {
+  const hundredPlusClub = []
+  
+  for (let i = 0; i < array.length; i++){
+    if (array[i]["paintings"] > 100){
+      hundredPlusClub.push(array[i]["name"]);
+    }
+  }
+  return hundredPlusClub
 }
+lotsOfArt(artists)
 
 
 
